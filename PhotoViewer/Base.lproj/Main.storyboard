@@ -113,19 +113,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jsp-CQ-6nB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="83x-NU-sKc">
-                                <rect key="frame" x="0.0" y="626" width="375" height="42"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="VPl-ob-KDN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jsp-CQ-6nB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jsp-CQ-6nB" secondAttribute="trailing" id="6lD-GE-JZT"/>
+                                    <constraint firstItem="jsp-CQ-6nB" firstAttribute="leading" secondItem="VPl-ob-KDN" secondAttribute="leading" id="A3e-6y-zdj"/>
+                                    <constraint firstAttribute="bottom" secondItem="jsp-CQ-6nB" secondAttribute="bottom" id="XA6-0L-4P1"/>
+                                    <constraint firstItem="jsp-CQ-6nB" firstAttribute="top" secondItem="VPl-ob-KDN" secondAttribute="top" id="rro-yj-ePP"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="WN3-ag-lZR" id="AkI-sa-Ujs"/>
+                                </connections>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="83x-NU-sKc">
+                                <rect key="frame" x="0.0" y="625" width="375" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="2r9-4O-glI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fx-s1-BoM" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
-                                <rect key="frame" x="137" y="315" width="100" height="100"/>
+                                <rect key="frame" x="137" y="283" width="100" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="D34-lY-vaS"/>
@@ -135,18 +151,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0fx-s1-BoM" firstAttribute="centerX" secondItem="jsp-CQ-6nB" secondAttribute="centerX" id="QtS-Z9-g2U"/>
-                            <constraint firstItem="jsp-CQ-6nB" firstAttribute="leading" secondItem="vmf-Pd-una" secondAttribute="leading" id="T3n-Se-7bz"/>
-                            <constraint firstAttribute="trailing" secondItem="jsp-CQ-6nB" secondAttribute="trailing" id="XDO-QQ-RUq"/>
-                            <constraint firstItem="2fc-Qk-yfB" firstAttribute="top" secondItem="jsp-CQ-6nB" secondAttribute="bottom" id="d55-Qa-hIi"/>
-                            <constraint firstItem="jsp-CQ-6nB" firstAttribute="top" secondItem="E9M-ZB-Nqb" secondAttribute="bottom" id="dM1-1h-Gym"/>
-                            <constraint firstItem="0fx-s1-BoM" firstAttribute="centerY" secondItem="jsp-CQ-6nB" secondAttribute="centerY" id="dnG-YD-7Z7"/>
+                            <constraint firstItem="jsp-CQ-6nB" firstAttribute="width" secondItem="vmf-Pd-una" secondAttribute="width" id="DSJ-pv-ViJ"/>
+                            <constraint firstItem="jsp-CQ-6nB" firstAttribute="height" secondItem="vmf-Pd-una" secondAttribute="height" id="FIL-Wm-4pn"/>
+                            <constraint firstItem="VPl-ob-KDN" firstAttribute="width" secondItem="vmf-Pd-una" secondAttribute="width" id="PeV-OV-Dyv"/>
+                            <constraint firstItem="2fc-Qk-yfB" firstAttribute="top" secondItem="83x-NU-sKc" secondAttribute="bottom" id="RbU-Vm-8Vw"/>
+                            <constraint firstAttribute="trailing" secondItem="83x-NU-sKc" secondAttribute="trailing" id="UGx-Rg-elA"/>
+                            <constraint firstItem="VPl-ob-KDN" firstAttribute="height" secondItem="vmf-Pd-una" secondAttribute="height" id="f7G-dz-74p"/>
+                            <constraint firstItem="VPl-ob-KDN" firstAttribute="centerY" secondItem="vmf-Pd-una" secondAttribute="centerY" id="j63-Nw-PL6"/>
+                            <constraint firstItem="VPl-ob-KDN" firstAttribute="centerX" secondItem="vmf-Pd-una" secondAttribute="centerX" id="rgh-He-2PT"/>
+                            <constraint firstItem="0fx-s1-BoM" firstAttribute="centerX" secondItem="vmf-Pd-una" secondAttribute="centerX" id="rv9-Gg-sPc"/>
+                            <constraint firstItem="0fx-s1-BoM" firstAttribute="centerY" secondItem="vmf-Pd-una" secondAttribute="centerY" id="viI-aF-u0K"/>
+                            <constraint firstItem="83x-NU-sKc" firstAttribute="leading" secondItem="vmf-Pd-una" secondAttribute="leading" id="z88-V9-6hx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dad-CF-tPP"/>
                     <connections>
                         <outlet property="activityIndicator" destination="0fx-s1-BoM" id="e4L-me-HbO"/>
                         <outlet property="imageView" destination="jsp-CQ-6nB" id="clf-p1-x8X"/>
+                        <outlet property="scrollView" destination="VPl-ob-KDN" id="iMV-BS-6RR"/>
                         <outlet property="titleLabel" destination="83x-NU-sKc" id="y9Q-H4-tyy"/>
                     </connections>
                 </viewController>
