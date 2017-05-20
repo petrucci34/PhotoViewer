@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Photo Viewer-->
+        <!--Search Photos-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ThumbnailViewController" customModule="PhotoViewer" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,7 +80,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fkC-6B-aA6" secondAttribute="bottom" id="qEm-sF-nI8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Photo Viewer" id="5FB-EG-54c"/>
+                    <navigationItem key="navigationItem" title="Search Photos" id="5FB-EG-54c"/>
                     <connections>
                         <outlet property="collectionView" destination="fkC-6B-aA6" id="kU4-gP-q46"/>
                         <outlet property="searchBar" destination="kOZ-VJ-5DA" id="P4m-EW-cW9"/>
@@ -137,9 +137,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pAp-fg-D41" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3kA-dD-DRT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3kA-dD-DRT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
