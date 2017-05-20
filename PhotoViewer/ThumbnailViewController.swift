@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ThumbnailViewController.swift
 //  PhotoViewer
 //
 //  Created by Bircan, Korhan on 5/17/17.
@@ -11,7 +11,7 @@ import UIKit
 import AlamofireImage
 import SwiftyBeaver
 
-class ViewController: UIViewController {
+class ThumbnailViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -29,6 +29,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    fileprivate var lastFetchDate = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
