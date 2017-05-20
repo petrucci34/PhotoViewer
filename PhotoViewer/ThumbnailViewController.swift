@@ -77,16 +77,8 @@ extension ThumbnailViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.description(), for: indexPath) as? CustomCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-
         let thumbnail = dataSource.thumbnails[indexPath.row]
-        cell.imageView.af_setImage(withURL: thumbnail.thumbnailSizeUrl!,
-                                   placeholderImage: ImageDataSource.placeholderImage,
-                                   imageTransition: .crossDissolve(0.2))
-
-        return cell
+        return ThumbnailViewModel.cellForThumbnail(thumbnail, collectionView: collectionView, indexPath: indexPath)
     }
 }
 
