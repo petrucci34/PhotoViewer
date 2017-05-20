@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7708C6461ECEB7EA00E2B419 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7708C6451ECEB7EA00E2B419 /* placeholderImage.png */; };
 		7708C6481ECEBAEE00E2B419 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7708C6471ECEBAEE00E2B419 /* PhotoViewController.swift */; };
-		7708C64A1ECEBDFA00E2B419 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 7708C6491ECEBDFA00E2B419 /* TODO */; };
 		77983EF51ECD5BFA00DA8AA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77983EF41ECD5BFA00DA8AA4 /* AppDelegate.swift */; };
 		77983EF71ECD5BFA00DA8AA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77983EF61ECD5BFA00DA8AA4 /* ViewController.swift */; };
 		77983EFA1ECD5BFA00DA8AA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77983EF81ECD5BFA00DA8AA4 /* Main.storyboard */; };
@@ -47,7 +46,6 @@
 		6539B794F1248C037A0693A7 /* Pods-PhotoViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoViewer/Pods-PhotoViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		7708C6451ECEB7EA00E2B419 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
 		7708C6471ECEBAEE00E2B419 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
-		7708C6491ECEBDFA00E2B419 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		77983EF11ECD5BFA00DA8AA4 /* PhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77983EF41ECD5BFA00DA8AA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77983EF61ECD5BFA00DA8AA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 		77983EE81ECD5BFA00DA8AA4 = {
 			isa = PBXGroup;
 			children = (
-				7708C6491ECEBDFA00E2B419 /* TODO */,
 				77983EF31ECD5BFA00DA8AA4 /* PhotoViewer */,
 				77983F081ECD5BFA00DA8AA4 /* PhotoViewerTests */,
 				77983F131ECD5BFA00DA8AA4 /* PhotoViewerUITests */,
@@ -327,7 +324,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				77983EFF1ECD5BFA00DA8AA4 /* LaunchScreen.storyboard in Resources */,
-				7708C64A1ECEBDFA00E2B419 /* TODO in Resources */,
 				7708C6461ECEB7EA00E2B419 /* placeholderImage.png in Resources */,
 				77983EFC1ECD5BFA00DA8AA4 /* Assets.xcassets in Resources */,
 				77983EFA1ECD5BFA00DA8AA4 /* Main.storyboard in Resources */,
