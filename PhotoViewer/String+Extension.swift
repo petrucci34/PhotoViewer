@@ -20,7 +20,7 @@ extension String {
     func trimRedundantWhitespace() -> String {
         var nonEmptyStringsSeparatedByWhitespace = ""
         let tokens = components(separatedBy: " ")
-        let nonEmptyTokens = tokens.filter{!$0.onlyWhitespaces && !$0.characters.isEmpty}
+        let nonEmptyTokens = tokens.filter{!$0.hasOnlyWhitespaces && !$0.characters.isEmpty}
 
         // Tokens can contain multi-whitespace strings which we want to avoid.
         for (index, token) in nonEmptyTokens.enumerated() {
@@ -33,5 +33,13 @@ extension String {
         }
 
         return nonEmptyStringsSeparatedByWhitespace
+    }
+
+    public var hasOnlyWhitespaces: Bool {
+        return trimWhitespace().isEmpty
+    }
+
+    func trimWhitespace() -> String {
+        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 }

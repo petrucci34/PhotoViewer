@@ -25,10 +25,6 @@ class ImageDataSource {
             return
         }
 
-        if keyword == self.keyword {
-            return
-        }
-
         self.keyword = keyword
         thumbnails.removeAll()
 

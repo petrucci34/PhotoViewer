@@ -17,6 +17,10 @@ class ThumbnailViewController: UIViewController {
 
     fileprivate let allowedNumberOfRemainingScreens = 1
     fileprivate let dataSource = ImageDataSource()
+    fileprivate let minKeyStrokeIntervalSeconds = 0.5
+    fileprivate let minKeyStrokeIntervalMilliseconds = 500 // DispatchTimeInterval expects an Int.
+    fileprivate let dispatchInterval = 1
+    fileprivate var lastFetchDate = Date()
     fileprivate var numberOfRemainingScreens: Int = 0 {
         didSet {
             if numberOfRemainingScreens < allowedNumberOfRemainingScreens {
@@ -29,7 +33,11 @@ class ThumbnailViewController: UIViewController {
             }
         }
     }
-    fileprivate var lastFetchDate = Date()
+    fileprivate var keyword: String = "" {
+        didSet {
+            keyword = keyword.trimRedundantWhitespace()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,13 +61,13 @@ class ThumbnailViewController: UIViewController {
     }
 }
 
-extension ViewController: UICollectionViewDelegate {
+extension ThumbnailViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         numberOfRemainingScreens = Int((scrollView.contentSize.height - scrollView.contentOffset.y) / scrollView.frame.height) - 1
     }
 }
 
-extension ViewController: UICollectionViewDataSource {
+extension ThumbnailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let keyword = searchBar.text, !keyword.isEmpty else {
             return 0
@@ -82,13 +90,42 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UISearchBarDelegate {
+extension ThumbnailViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        SwiftyBeaver.debug("searchbar text: \(searchBar.text!)")
-        dataSource.thumbnailsForKeyword(searchBar.text) {
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+        requestThumbnailsFor(keyword: keyword.trimRedundantWhitespace())
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        requestThumbnailsFor(keyword: keyword.trimRedundantWhitespace())
+    }
+
+    fileprivate func requestThumbnailsFor(keyword: String) {
+        guard let keyword = searchBar.text else {
+            return
+        }
+
+        let now = Date()
+        let interval = now.timeIntervalSince(lastFetchDate)
+
+        // If the user has stopped typing we can send a network request. Otherwise, it's either too
+        // soon or the user is still typing.
+        if interval >= minKeyStrokeIntervalSeconds && keyword == self.keyword {
+            SwiftyBeaver.debug("Last query old enough \(interval)s, requesting thumbnails for keyword:\(self.keyword)")
+            dataSource.thumbnailsForKeyword(keyword) {
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        } else {
+            SwiftyBeaver.debug("Last query too soon \(interval)s, query:\(self.keyword). Dispatching \(minKeyStrokeIntervalMilliseconds)ms later")
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(dispatchInterval)) {
+                if keyword == self.keyword {
+                    self.requestThumbnailsFor(keyword: keyword)
+                }
             }
         }
+
+        self.keyword = keyword
+        lastFetchDate = now
     }
 }

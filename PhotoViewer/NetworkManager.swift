@@ -30,12 +30,12 @@ struct NetworkManager {
     }
 
     func fetchThumbnailData(imagesPerPage: Int, page: Int, keyword: String, completion: @escaping ThumbnailCompletionBlock) {
-        guard keyword.characters.count > 0 else {
+        guard keyword.characters.count > 0, let url = baseURL(imagesPerPage: imagesPerPage, page: page, keyword: keyword) else {
             completion([])
             return
         }
 
-        var urlRequest = URLRequest(url: baseURL(imagesPerPage: imagesPerPage, page: page, keyword: keyword),
+        var urlRequest = URLRequest(url: url,
                                     cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                     timeoutInterval: 10.0 * 1000)
         urlRequest.httpMethod = "GET"
@@ -50,36 +50,18 @@ struct NetworkManager {
 
             let json = JSON(data: jsonData)
             let thumbnails = ThumbnailParser.parseThumbnails(json: json)
-            self.downloadImages(thumbnails)
             completion(thumbnails)
         }
 
         task.resume()
     }
 
-    private func downloadImages(_ thumbnails: [Thumbnail]) {
-        return
-        for thumbnail in thumbnails {
-            if let thumbnailURL = thumbnail.thumbnailSizeUrl {
-                let urlRequest = URLRequest(url: thumbnailURL)
-                imageDownloader.download(urlRequest) { response in
-                    guard let request = response.request else {
-                        return
-                    }
-
-                    SwiftyBeaver.debug(request)
-                    SwiftyBeaver.debug(response.result)
-
-                    if let image = response.result.value {
-                        self.imageCache.add(image, withIdentifier: thumbnailURL.absoluteString)
-                    }
-                }
-            }
+    private func baseURL(imagesPerPage: Int, page: Int, keyword: String) -> URL? {
+        guard let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            return nil
         }
-    }
 
-    private func baseURL(imagesPerPage: Int, page: Int, keyword: String) -> URL {
-        let urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=675894853ae8ec6c242fa4c077bcf4a0&text=\(keyword)&extras=url_s&format=json&nojsoncallback=1&per_page=\(imagesPerPage)&page=\(page)"
-        return URL(string: urlString)!
+        let urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=675894853ae8ec6c242fa4c077bcf4a0&text=\(encodedKeyword)&extras=url_s&format=json&nojsoncallback=1&per_page=\(imagesPerPage)&page=\(page)"
+        return URL(string: urlString)
     }
 }
