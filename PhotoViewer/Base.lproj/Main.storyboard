@@ -48,26 +48,27 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aMU-26-ePj">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="6Oy-U7-0HK">
-                                                    <rect key="frame" x="15" y="15" width="20" height="20"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-mP-b4w" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                                    <rect key="frame" x="12.5" y="12.5" width="25" height="25"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="foz-X8-SFD"/>
-                                                        <constraint firstAttribute="width" constant="20" id="zBD-QD-PBD"/>
+                                                        <constraint firstAttribute="width" constant="25" id="Iu0-2h-BKH"/>
+                                                        <constraint firstAttribute="height" constant="25" id="Z01-6G-j1D"/>
                                                     </constraints>
-                                                </activityIndicatorView>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="6Oy-U7-0HK" firstAttribute="centerX" secondItem="EFd-pN-0Vm" secondAttribute="centerX" id="3yk-rj-see"/>
                                             <constraint firstItem="aMU-26-ePj" firstAttribute="top" secondItem="EFd-pN-0Vm" secondAttribute="top" id="8ev-CP-cxb"/>
                                             <constraint firstAttribute="bottom" secondItem="aMU-26-ePj" secondAttribute="bottom" id="D84-DH-ASa"/>
                                             <constraint firstAttribute="trailing" secondItem="aMU-26-ePj" secondAttribute="trailing" id="OfV-ES-kOP"/>
+                                            <constraint firstItem="eP1-mP-b4w" firstAttribute="centerY" secondItem="EFd-pN-0Vm" secondAttribute="centerY" id="ZyY-qz-inQ"/>
                                             <constraint firstItem="aMU-26-ePj" firstAttribute="leading" secondItem="EFd-pN-0Vm" secondAttribute="leading" id="dgd-xH-7nN"/>
-                                            <constraint firstItem="6Oy-U7-0HK" firstAttribute="centerY" secondItem="EFd-pN-0Vm" secondAttribute="centerY" id="vgH-6D-BE5"/>
+                                            <constraint firstItem="eP1-mP-b4w" firstAttribute="centerX" secondItem="EFd-pN-0Vm" secondAttribute="centerX" id="pzj-eu-ZUu"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="activityIndicator" destination="6Oy-U7-0HK" id="Hdc-7w-Scg"/>
+                                            <outlet property="activityIndicator" destination="eP1-mP-b4w" id="gQ1-aw-PGT"/>
                                             <outlet property="imageView" destination="aMU-26-ePj" id="jug-iL-tbu"/>
                                             <segue destination="WN3-ag-lZR" kind="show" id="lcf-o1-dgi"/>
                                         </connections>
@@ -123,17 +124,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fx-s1-BoM" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="137" y="315" width="100" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="D34-lY-vaS"/>
+                                    <constraint firstAttribute="width" constant="100" id="aSB-3Z-zLF"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="0fx-s1-BoM" firstAttribute="centerX" secondItem="jsp-CQ-6nB" secondAttribute="centerX" id="QtS-Z9-g2U"/>
                             <constraint firstItem="jsp-CQ-6nB" firstAttribute="leading" secondItem="vmf-Pd-una" secondAttribute="leading" id="T3n-Se-7bz"/>
                             <constraint firstAttribute="trailing" secondItem="jsp-CQ-6nB" secondAttribute="trailing" id="XDO-QQ-RUq"/>
                             <constraint firstItem="2fc-Qk-yfB" firstAttribute="top" secondItem="jsp-CQ-6nB" secondAttribute="bottom" id="d55-Qa-hIi"/>
                             <constraint firstItem="jsp-CQ-6nB" firstAttribute="top" secondItem="E9M-ZB-Nqb" secondAttribute="bottom" id="dM1-1h-Gym"/>
+                            <constraint firstItem="0fx-s1-BoM" firstAttribute="centerY" secondItem="jsp-CQ-6nB" secondAttribute="centerY" id="dnG-YD-7Z7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dad-CF-tPP"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="0fx-s1-BoM" id="e4L-me-HbO"/>
                         <outlet property="imageView" destination="jsp-CQ-6nB" id="clf-p1-x8X"/>
                         <outlet property="titleLabel" destination="83x-NU-sKc" id="y9Q-H4-tyy"/>
                     </connections>

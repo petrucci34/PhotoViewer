@@ -14,17 +14,16 @@ struct ThumbnailViewModel {
             return UICollectionViewCell()
         }
 
-        cell.activityIndicator.isHidden = false
+        cell.imageView.image = nil // Release the previous image.
         cell.activityIndicator.startAnimating()
         cell.imageView.af_setImage(withURL: thumbnail.thumbnailSizeUrl!,
-            placeholderImage: ImageDataSource.placeholderImage,
+            placeholderImage: nil,
             filter: nil,
             progress: nil,
             progressQueue: DispatchQueue.main,
             imageTransition: .crossDissolve(0.2),
             runImageTransitionIfCached: true) { image in
                 cell.activityIndicator.stopAnimating()
-                cell.activityIndicator.isHidden = true
         }
 
         return cell
