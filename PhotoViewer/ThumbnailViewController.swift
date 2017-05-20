@@ -91,6 +91,8 @@ extension ThumbnailViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         requestThumbnailsFor(keyword: keyword.trimRedundantWhitespace())
+
+        searchBar.resignFirstResponder()
     }
 
     fileprivate func requestThumbnailsFor(keyword: String) {
