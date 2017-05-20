@@ -1,0 +1,12 @@
+- Make detailed photo zoomable.
+- Buffer search text.
+- Add spinner to thumbnail images.
+- Add spinner to detail screen.
+- Add an uppoer bound to downloaded images.
+- Change priority of downloaded images as user scrolls.
+- Discard images as user scrolls.
+- Make sure screen title text colors match.
+- Add app icon.
+- Add launch screen.
+- Add unit tests.
+- Add UI tests.
