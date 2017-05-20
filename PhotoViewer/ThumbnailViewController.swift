@@ -64,6 +64,8 @@ class ThumbnailViewController: UIViewController {
 extension ThumbnailViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         numberOfRemainingScreens = Int((scrollView.contentSize.height - scrollView.contentOffset.y) / scrollView.frame.height) - 1
+
+        searchBar.resignFirstResponder()
     }
 }
 
