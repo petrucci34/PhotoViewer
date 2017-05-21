@@ -23,8 +23,15 @@ class PhotoViewController: UIViewController {
 
         activityIndicator.startAnimating()
         if let imageURL = thumbnail?.url {
-            imageView.af_setImage(withURL: imageURL, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false, completion: { (image) in
-                self.activityIndicator.stopAnimating()
+            imageView.af_setImage(withURL: imageURL,
+                placeholderImage: nil,
+                filter: nil,
+                progress: nil,
+                progressQueue: DispatchQueue.main,
+                imageTransition: .crossDissolve(0.2),
+                runImageTransitionIfCached: false,
+                completion: { (image) in
+                    self.activityIndicator.stopAnimating()
             })
         }
     }
@@ -33,7 +40,6 @@ class PhotoViewController: UIViewController {
         // Center content after orientation changes.
         scrollView.frame = CGRect(origin: CGPoint.zero, size: size)
         scrollView.zoomScale = 1
-//        scrollView.setContentOffset(CGPoint.zero, animated: true)
     }
 }
 
