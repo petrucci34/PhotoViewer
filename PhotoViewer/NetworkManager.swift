@@ -18,12 +18,17 @@ struct NetworkManager {
     static let sharedInstance = NetworkManager()
 
     private let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
-    private let imageDownloader = ImageDownloader(
-        configuration: ImageDownloader.defaultURLSessionConfiguration(),
+    private let imageDownloader = ImageDownloader(configuration: ImageDownloader.defaultURLSessionConfiguration(),
         downloadPrioritization: .fifo,
         maximumActiveDownloads: 10,
         imageCache: AutoPurgingImageCache()
     )
+
+    // The `AutoPurgingImageCache` in an in-memory image cache used to store images up to a given memory capacity. When
+    // the memory capacity is reached, the image cache is sorted by last access date, then the oldest image is continuously
+    // purged until the preferred memory usage after purge is met. Each time an image is accessed through the cache, the
+    // internal access date of the image is updated.
+    // The total memory capacity of the cache is `100 MB` by default.
     private let imageCache = AutoPurgingImageCache()
 
     private init() {
@@ -37,7 +42,7 @@ struct NetworkManager {
 
         var urlRequest = URLRequest(url: url,
                                     cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-                                    timeoutInterval: 10.0 * 1000)
+                                    timeoutInterval: 60.0)
         urlRequest.httpMethod = "GET"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
 
