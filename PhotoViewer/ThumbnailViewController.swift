@@ -27,9 +27,14 @@ class ThumbnailViewController: UIViewController {
         didSet {
             if numberOfRemainingScreens < allowedNumberOfRemainingScreens {
                 SwiftyBeaver.debug("should request more images")
-                dataSource.requestMoreThumbnails() {
+                dataSource.requestMoreThumbnails() { thumbnails in
                     DispatchQueue.main.async {
-                        self.collectionView.reloadData()
+                        var indexPaths = [IndexPath]()
+                        let totalCount = self.dataSource.thumbnails.count
+                        for row in (totalCount - thumbnails.count)..<totalCount {
+                            indexPaths.append(IndexPath(row: row, section: 0))
+                        }
+                        self.collectionView.insertItems(at: indexPaths)
                     }
                 }
             }

@@ -10,6 +10,7 @@ import Foundation
 import SwiftyBeaver
 
 typealias VoidCompletionBlock = (() -> Void)
+typealias ThumbnailsCompletionBlock = (([Thumbnail]) -> Void)
 
 class ImageDataSource {
     static let placeholderImage = UIImage(named: "placeholderImage")
@@ -37,7 +38,7 @@ class ImageDataSource {
         }
     }
 
-    func requestMoreThumbnails(completion: @escaping VoidCompletionBlock) {
+    func requestMoreThumbnails(completion: @escaping ThumbnailsCompletionBlock) {
         guard !requestInFlight else {
             return
         }
@@ -50,7 +51,7 @@ class ImageDataSource {
             keyword: keyword) { thumbnails in
                 self.thumbnails.append(contentsOf: thumbnails)
                 self.requestInFlight = false
-                completion()
+                completion(thumbnails)
         }
     }
 }
