@@ -144,12 +144,12 @@
 		77983EF31ECD5BFA00DA8AA4 /* PhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
-				777CF61A1ECFFAED004F8715 /* Helpers */,
 				77983EF41ECD5BFA00DA8AA4 /* AppDelegate.swift */,
+				777CF61A1ECFFAED004F8715 /* Helpers */,
 				77C397411ECD6925005D004E /* Controller */,
-				77C3973F1ECD6914005D004E /* Networking */,
 				77C3973E1ECD6908005D004E /* Model */,
-				77C397421ECD692D005D004E /* Resource */,
+				77C3973F1ECD6914005D004E /* Networking */,
+				77C397421ECD692D005D004E /* Resources */,
 				77C397401ECD691F005D004E /* View */,
 			);
 			path = PhotoViewer;
@@ -212,7 +212,7 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		77C397421ECD692D005D004E /* Resource */ = {
+		77C397421ECD692D005D004E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				7708C6451ECEB7EA00E2B419 /* placeholderImage.png */,
@@ -221,7 +221,7 @@
 				77983EFD1ECD5BFA00DA8AA4 /* LaunchScreen.storyboard */,
 				77983F001ECD5BFA00DA8AA4 /* Info.plist */,
 			);
-			name = Resource;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		84B43EDBBC5CB670E752C5D0 /* Frameworks */ = {
