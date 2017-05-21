@@ -9,11 +9,13 @@
 import UIKit
 
 import AlamofireImage
+import NVActivityIndicatorView
 import SwiftyBeaver
 
 class ThumbnailViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
 
     fileprivate let allowedNumberOfRemainingScreens = 1
     fileprivate let dataSource = ImageDataSource()
@@ -107,8 +109,10 @@ extension ThumbnailViewController: UISearchBarDelegate {
         // soon or the user is still typing.
         if interval >= minKeyStrokeIntervalSeconds && keyword == self.keyword {
             SwiftyBeaver.debug("Last query old enough \(interval)s, requesting thumbnails for keyword:\(self.keyword)")
+            activityIndicator.startAnimating()
             dataSource.thumbnailsForKeyword(keyword) {
                 DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
                     self.collectionView.reloadData()
                 }
             }

@@ -79,20 +79,33 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="y3Y-tv-CH4"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDO-6e-90R" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="137" y="283" width="100" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="3Lh-zs-j2w"/>
+                                    <constraint firstAttribute="height" constant="100" id="Xb1-jS-leG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="yWU-Qh-9OW"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="ybR-22-pT2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="fkC-6B-aA6" secondAttribute="trailing" id="1Hl-lA-FWW"/>
                             <constraint firstItem="fkC-6B-aA6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2he-zh-MLy"/>
                             <constraint firstItem="fkC-6B-aA6" firstAttribute="top" secondItem="kOZ-VJ-5DA" secondAttribute="bottom" id="8a9-eb-zFP"/>
+                            <constraint firstItem="hDO-6e-90R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E9d-lk-uTE"/>
                             <constraint firstItem="kOZ-VJ-5DA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="G18-BP-Zwa"/>
                             <constraint firstAttribute="trailing" secondItem="kOZ-VJ-5DA" secondAttribute="trailing" id="OGQ-Ru-EXN"/>
                             <constraint firstItem="kOZ-VJ-5DA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Q38-2F-fCT"/>
+                            <constraint firstItem="hDO-6e-90R" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RVq-Dw-BNR"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fkC-6B-aA6" secondAttribute="bottom" id="qEm-sF-nI8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search Photos" id="5FB-EG-54c"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="hDO-6e-90R" id="vUy-z1-pAV"/>
                         <outlet property="collectionView" destination="fkC-6B-aA6" id="kU4-gP-q46"/>
                         <outlet property="searchBar" destination="kOZ-VJ-5DA" id="P4m-EW-cW9"/>
                     </connections>
@@ -181,7 +194,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pAp-fg-D41" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3kA-dD-DRT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3kA-dD-DRT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
