@@ -3,7 +3,7 @@ This is a demo application that demonstrates downloading and displaying images, 
 
 There are a couple of interesting things about how this application operates. First of all, here's what the application does:
 
-![](https://github.com/petrucci34/PhotoViewer/blob/master/photoViewer.gif?raw=true)!
+![](https://github.com/petrucci34/PhotoViewer/blob/master/photoViewer.gif?raw=true)
 
 And here are the steps that are taking place above:
 
