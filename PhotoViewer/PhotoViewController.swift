@@ -28,6 +28,13 @@ class PhotoViewController: UIViewController {
             })
         }
     }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        // Center content after orientation changes.
+        scrollView.frame = CGRect(origin: CGPoint.zero, size: size)
+        scrollView.zoomScale = 1
+//        scrollView.setContentOffset(CGPoint.zero, animated: true)
+    }
 }
 
 extension PhotoViewController: UIScrollViewDelegate {
