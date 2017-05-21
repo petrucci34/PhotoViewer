@@ -7,3 +7,7 @@ target 'PhotoViewer' do
     pod 'SwiftyJSON'
     pod 'SwiftyBeaver'
 end
+
+target 'PhotoViewerTests' do
+    pod 'SwiftyJSON'
+end
