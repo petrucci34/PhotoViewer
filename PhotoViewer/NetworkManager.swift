@@ -19,7 +19,7 @@ struct NetworkManager {
 
     private let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
     private let imageDownloader = ImageDownloader(configuration: ImageDownloader.defaultURLSessionConfiguration(),
-        downloadPrioritization: .fifo,
+        downloadPrioritization: .lifo,
         maximumActiveDownloads: 10,
         imageCache: AutoPurgingImageCache()
     )
