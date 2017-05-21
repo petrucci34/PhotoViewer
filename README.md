@@ -18,7 +18,7 @@ As the user's typing, we're keeping track of the text, checking to see if the us
 The second interesting piece is the infinite scrolling and this is actually pretty straightforward. By conforming to `UICollectionViewDelegate`, we can observe the collection view as it scrolls. The two concepts we need to familiarize ourselves with is the `contentSize` and `contentOffset`. `contentSize` is the dimension of all the thumbnails stacked up vertically. `contentOffset` is the point at which the origin of the content view is offset from the origin of the scroll view. We also know the visible screen's height, `scrollView.frame.height`. When we put all this together, we can calculate how many screens worth of thumbnails there are eg.
 
 ```
-    numberOfScreens = scrollView.contentSize.height / crollView.frame.height
+    numberOfScreens = scrollView.contentSize.height / scrollView.frame.height
     currentScreenNumber = scrollView.contentOffset.y / scrollView.frame.height
 ```
 
