@@ -56,7 +56,7 @@ struct NetworkManager {
         task.resume()
     }
 
-    private func baseURL(imagesPerPage: Int, page: Int, keyword: String) -> URL? {
+    func baseURL(imagesPerPage: Int, page: Int, keyword: String) -> URL? {
         guard let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
             return nil
         }
