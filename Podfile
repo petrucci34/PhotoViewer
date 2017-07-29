@@ -6,6 +6,7 @@ target 'PhotoViewer' do
     pod 'NVActivityIndicatorView'
     pod 'SwiftyJSON'
     pod 'SwiftyBeaver'
+    pod 'MobileCenter'
 end
 
 target 'PhotoViewerTests' do

@@ -7,6 +7,10 @@
 //
 
 import UIKit
+
+import MobileCenter
+import MobileCenterAnalytics
+import MobileCenterCrashes
 import NVActivityIndicatorView
 import SwiftyBeaver
 
@@ -17,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         SwiftyBeaver.addDestination(ConsoleDestination())
         NVActivityIndicatorView.configure()
+
+        MSMobileCenter.start("c5439355-2f8a-4dbc-95a1-2ff740f0c01f",
+                             withServices: [MSAnalytics.self, MSCrashes.self])
 
         return true
     }
