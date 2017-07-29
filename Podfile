@@ -9,6 +9,10 @@ target 'PhotoViewer' do
     pod 'MobileCenter'
 end
 
+target 'PhotoViewerUITests' do
+    pod 'VSMobileCenterExtensions'
+end
+
 target 'PhotoViewerTests' do
     pod 'SwiftyJSON'
 end
